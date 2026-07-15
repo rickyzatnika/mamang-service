@@ -218,7 +218,7 @@ export function BookingWizard() {
     <div className="w-full max-w-2xl mx-auto px-4 py-8">
       <ProgressHeader currentStep={currentStep} />
 
-      <div className="w-full max-w-[640px] rounded-3xl shadow-xl bg-white p-6 sm:p-8">
+      <div className="w-full max-w-160 rounded-3xl shadow-xl bg-white p-6 sm:p-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
