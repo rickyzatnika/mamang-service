@@ -8,7 +8,7 @@ export default function HomePage() {
       <header className="border-b border-[#E5E7EB] bg-white sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="MaMang Service" width={32} height={32} className="rounded-lg" />
+            <Image src="/logo.png" alt="MaMang Service" width={100} height={75} className="object-contain" />
           </Link>
           <Link
             href="/booking"
