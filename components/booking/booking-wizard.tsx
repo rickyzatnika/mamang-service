@@ -218,7 +218,7 @@ export function BookingWizard() {
     <div className="w-full max-w-2xl mx-auto px-4 py-8">
       <ProgressHeader currentStep={currentStep} />
 
-      <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+      <div className="w-full max-w-[640px] rounded-3xl shadow-xl bg-white p-6 sm:p-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
@@ -230,8 +230,8 @@ export function BookingWizard() {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             <div className="mb-6">
-              <h2 className="text-2xl font-bold">{STEP_TITLES[currentStep]}</h2>
-              <p className="text-muted-foreground mt-1">
+              <h2 className="text-xl font-bold text-[#0F172A]">{STEP_TITLES[currentStep]}</h2>
+              <p className="text-sm text-[#475569] mt-1">
                 {STEP_DESCRIPTIONS[currentStep]}
               </p>
             </div>

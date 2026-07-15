@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { SERVICES_BY_DEVICE, SERVICE_OPTIONS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { Check, Lightbulb } from "lucide-react";
+import { Check } from "lucide-react";
 
 export function StepService() {
   const { watch, setValue } = useFormContext();
@@ -21,7 +21,7 @@ export function StepService() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 gap-3">
         {availableServices.map((service) => {
           const isSelected = selectedServices.includes(service);
 
@@ -35,14 +35,14 @@ export function StepService() {
               className={cn(
                 "relative flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer text-left",
                 isSelected
-                  ? "border-primary bg-primary/5 shadow-md"
-                  : "border-border bg-card hover:border-primary/30 hover:shadow-sm"
+                  ? "border-[#22C55E] bg-[#22C55E]/5"
+                  : "border-[#E5E7EB] bg-white hover:border-[#22C55E]/30"
               )}
             >
               <div
                 className={cn(
-                  "flex items-center justify-center w-8 h-8 rounded-lg shrink-0 transition-colors",
-                  isSelected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                  "flex items-center justify-center w-7 h-7 rounded-lg shrink-0 transition-colors",
+                  isSelected ? "bg-[#22C55E] text-white" : "bg-[#F1F5F9] text-[#94A3B8]"
                 )}
               >
                 {isSelected ? (
@@ -53,8 +53,8 @@ export function StepService() {
               </div>
               <span
                 className={cn(
-                  "text-sm font-medium transition-colors",
-                  isSelected ? "text-primary" : "text-foreground"
+                  "text-sm font-medium",
+                  isSelected ? "text-[#22C55E]" : "text-[#0F172A]"
                 )}
               >
                 {service}
@@ -62,16 +62,6 @@ export function StepService() {
             </motion.button>
           );
         })}
-      </div>
-
-      <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/10">
-        <Lightbulb className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-        <div>
-          <p className="text-sm font-medium">Tips</p>
-          <p className="text-sm text-muted-foreground">
-            Anda dapat memilih lebih dari satu layanan.
-          </p>
-        </div>
       </div>
     </div>
   );

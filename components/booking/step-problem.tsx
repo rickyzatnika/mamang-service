@@ -18,7 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { DEVICE_AGE_OPTIONS } from "@/lib/constants";
-import { X, Upload, Image as ImageIcon } from "lucide-react";
+import { X, Upload } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useRef } from "react";
 
@@ -61,9 +61,13 @@ export function StepProblem() {
           name="brand"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Merk</FormLabel>
+              <FormLabel className="text-[#0F172A]">Merk</FormLabel>
               <FormControl>
-                <Input placeholder="Samsung, Apple, Asus..." {...field} />
+                <Input
+                  placeholder="Samsung, Apple, Asus..."
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -75,9 +79,13 @@ export function StepProblem() {
           name="model"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Model</FormLabel>
+              <FormLabel className="text-[#0F172A]">Model</FormLabel>
               <FormControl>
-                <Input placeholder="iPhone 15, ROG Strix..." {...field} />
+                <Input
+                  placeholder="iPhone 15, ROG Strix..."
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -90,14 +98,14 @@ export function StepProblem() {
         name="deviceAge"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Usia Perangkat</FormLabel>
+            <FormLabel className="text-[#0F172A]">Usia Perangkat</FormLabel>
             <Select onValueChange={field.onChange} value={field.value ?? ""}>
               <FormControl>
-                <SelectTrigger>
+                <SelectTrigger className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] focus:border-[#22C55E] focus:ring-[#22C55E]">
                   <SelectValue placeholder="Pilih usia perangkat" />
                 </SelectTrigger>
               </FormControl>
-              <SelectContent>
+              <SelectContent className="rounded-xl border-[#E5E7EB]">
                 {DEVICE_AGE_OPTIONS.map((option) => (
                   <SelectItem key={option} value={option}>
                     {option}
@@ -115,24 +123,22 @@ export function StepProblem() {
         name="problem"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Ceritakan Kerusakan *</FormLabel>
+            <FormLabel className="text-[#0F172A]">Ceritakan Kerusakan *</FormLabel>
             <FormControl>
               <Textarea
                 placeholder="Jelaskan masalah yang Anda alami secara detail..."
-                className="min-h-[120px]"
+                className="min-h-[120px] rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
                 {...field}
               />
             </FormControl>
-            <p className="text-xs text-muted-foreground">
-              Minimal 20 karakter
-            </p>
+            <p className="text-xs text-[#94A3B8]">Minimal 20 karakter</p>
             <FormMessage />
           </FormItem>
         )}
       />
 
       <div className="space-y-3">
-        <FormLabel>Foto Kerusakan (Maks. 5)</FormLabel>
+        <FormLabel className="text-[#0F172A]">Foto Kerusakan (Maks. 5)</FormLabel>
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
           <AnimatePresence>
             {images.map((img, index) => (
@@ -141,7 +147,7 @@ export function StepProblem() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="relative aspect-square rounded-xl overflow-hidden border-2 border-border group"
+                className="relative aspect-square rounded-xl overflow-hidden border-2 border-[#E5E7EB] group"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -152,9 +158,9 @@ export function StepProblem() {
                 <button
                   type="button"
                   onClick={() => removeImage(index)}
-                  className="absolute top-1 right-1 w-6 h-6 rounded-full bg-destructive flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute top-1 right-1 w-6 h-6 rounded-full bg-[#EF4444] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                 >
-                  <X className="w-3.5 h-3.5 text-destructive-foreground" />
+                  <X className="w-3.5 h-3.5 text-white" />
                 </button>
               </motion.div>
             ))}
@@ -166,10 +172,10 @@ export function StepProblem() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => fileInputRef.current?.click()}
-              className="aspect-square rounded-xl border-2 border-dashed border-border flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-primary/5 transition-colors cursor-pointer"
+              className="aspect-square rounded-xl border-2 border-dashed border-[#E5E7EB] flex flex-col items-center justify-center gap-2 hover:border-[#22C55E]/50 hover:bg-[#22C55E]/5 transition-colors cursor-pointer"
             >
-              <Upload className="w-6 h-6 text-muted-foreground" />
-              <span className="text-xs text-muted-foreground">Upload</span>
+              <Upload className="w-5 h-5 text-[#94A3B8]" />
+              <span className="text-xs text-[#94A3B8]">Upload</span>
             </motion.button>
           )}
         </div>
@@ -181,16 +187,6 @@ export function StepProblem() {
           onChange={handleImageUpload}
           className="hidden"
         />
-      </div>
-
-      <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/10">
-        <ImageIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-        <div>
-          <p className="text-sm font-medium">Tips</p>
-          <p className="text-sm text-muted-foreground">
-            Foto kerusakan akan membantu proses diagnosa.
-          </p>
-        </div>
       </div>
     </div>
   );

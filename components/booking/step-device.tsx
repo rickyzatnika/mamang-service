@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { DEVICE_OPTIONS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { Lightbulb, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 export function StepDevice() {
   const { watch, setValue } = useFormContext();
@@ -12,7 +12,7 @@ export function StepDevice() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {DEVICE_OPTIONS.map((option) => {
           const isSelected = selectedDevice === option.id;
           const Icon = option.icon;
@@ -27,36 +27,36 @@ export function StepDevice() {
               className={cn(
                 "relative flex flex-col items-center gap-3 p-6 rounded-2xl border-2 transition-all duration-200 cursor-pointer",
                 isSelected
-                  ? "border-primary bg-primary/5 shadow-md"
-                  : "border-border bg-card hover:border-primary/30 hover:shadow-sm"
+                  ? "border-[#22C55E] bg-[#22C55E]/5"
+                  : "border-[#E5E7EB] bg-white hover:border-[#22C55E]/30"
               )}
             >
               {isSelected && (
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute top-2 right-2 w-6 h-6 rounded-full bg-primary flex items-center justify-center"
+                  className="absolute top-2 right-2 w-5 h-5 rounded-full bg-[#22C55E] flex items-center justify-center"
                 >
-                  <Check className="w-3.5 h-3.5 text-primary-foreground" />
+                  <Check className="w-3 h-3 text-white" />
                 </motion.div>
               )}
               <div
                 className={cn(
-                  "flex items-center justify-center w-14 h-14 rounded-xl transition-colors",
-                  isSelected ? "bg-primary/10" : "bg-muted"
+                  "flex items-center justify-center w-12 h-12 rounded-xl",
+                  isSelected ? "bg-[#22C55E]/10" : "bg-[#F1F5F9]"
                 )}
               >
                 <Icon
                   className={cn(
-                    "w-7 h-7 transition-colors",
-                    isSelected ? "text-primary" : "text-muted-foreground"
+                    "w-6 h-6",
+                    isSelected ? "text-[#22C55E]" : "text-[#94A3B8]"
                   )}
                 />
               </div>
               <span
                 className={cn(
-                  "text-sm font-medium transition-colors",
-                  isSelected ? "text-primary" : "text-foreground"
+                  "text-sm font-medium",
+                  isSelected ? "text-[#22C55E]" : "text-[#0F172A]"
                 )}
               >
                 {option.label}
@@ -64,17 +64,6 @@ export function StepDevice() {
             </motion.button>
           );
         })}
-      </div>
-
-      <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/10">
-        <Lightbulb className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-        <div>
-          <p className="text-sm font-medium">Tips</p>
-          <p className="text-sm text-muted-foreground">
-            Pilih perangkat yang paling sesuai agar teknisi dapat mempersiapkan
-            alat yang dibutuhkan.
-          </p>
-        </div>
       </div>
     </div>
   );

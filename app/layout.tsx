@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Geist } from "next/font/google";
 import { Toaster } from "sonner";
 import { ConvexClientProvider } from "@/components/convex-provider";
 import "./globals.css";
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  display: 'swap', // Prevents layout shift
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
-
-
 
 export const metadata: Metadata = {
   title: "MaMang Service - Mager Keluar? MaMang yang Datang.",
@@ -25,10 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="id"
-      className={`${poppins.className}  h-full antialiased`}
-    >
+    <html lang="id" className={`${geist.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background">
         <ConvexClientProvider>
           {children}

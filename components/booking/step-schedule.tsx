@@ -12,10 +12,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { Calendar } from "lucide-react";
 
 export function StepSchedule() {
   const { control } = useFormContext();
+
   return (
     <div className="space-y-5">
       <div className="grid grid-cols-2 gap-4">
@@ -24,9 +24,13 @@ export function StepSchedule() {
           name="bookingDate"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tanggal *</FormLabel>
+              <FormLabel className="text-[#0F172A]">Tanggal *</FormLabel>
               <FormControl>
-                <Input type="date" {...field} />
+                <Input
+                  type="date"
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -38,9 +42,13 @@ export function StepSchedule() {
           name="bookingTime"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Jam *</FormLabel>
+              <FormLabel className="text-[#0F172A]">Jam *</FormLabel>
               <FormControl>
-                <Input type="time" {...field} />
+                <Input
+                  type="time"
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -53,7 +61,7 @@ export function StepSchedule() {
         name="locationType"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Lokasi *</FormLabel>
+            <FormLabel className="text-[#0F172A]">Lokasi *</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -61,14 +69,14 @@ export function StepSchedule() {
                 className="flex gap-4"
               >
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="rumah" id="rumah" />
-                  <Label htmlFor="rumah" className="cursor-pointer">
+                  <RadioGroupItem value="rumah" id="rumah" className="border-[#E5E7EB] data-[state=checked]:border-[#22C55E] data-[state=checked]:bg-[#22C55E]" />
+                  <Label htmlFor="rumah" className="cursor-pointer text-[#0F172A]">
                     🏠 Rumah
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="kantor" id="kantor" />
-                  <Label htmlFor="kantor" className="cursor-pointer">
+                  <RadioGroupItem value="kantor" id="kantor" className="border-[#E5E7EB] data-[state=checked]:border-[#22C55E] data-[state=checked]:bg-[#22C55E]" />
+                  <Label htmlFor="kantor" className="cursor-pointer text-[#0F172A]">
                     🏢 Kantor
                   </Label>
                 </div>
@@ -84,7 +92,7 @@ export function StepSchedule() {
         name="priority"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Prioritas *</FormLabel>
+            <FormLabel className="text-[#0F172A]">Prioritas *</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -92,14 +100,14 @@ export function StepSchedule() {
                 className="flex gap-4"
               >
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="normal" id="normal" />
-                  <Label htmlFor="normal" className="cursor-pointer">
+                  <RadioGroupItem value="normal" id="normal" className="border-[#E5E7EB] data-[state=checked]:border-[#22C55E] data-[state=checked]:bg-[#22C55E]" />
+                  <Label htmlFor="normal" className="cursor-pointer text-[#0F172A]">
                     ⏰ Normal
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="urgent" id="urgent" />
-                  <Label htmlFor="urgent" className="cursor-pointer">
+                  <RadioGroupItem value="urgent" id="urgent" className="border-[#E5E7EB] data-[state=checked]:border-[#22C55E] data-[state=checked]:bg-[#22C55E]" />
+                  <Label htmlFor="urgent" className="cursor-pointer text-[#0F172A]">
                     ⚡ Urgent (+Biaya Tambahan)
                   </Label>
                 </div>
@@ -115,11 +123,11 @@ export function StepSchedule() {
         name="notes"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Catatan Tambahan (Opsional)</FormLabel>
+            <FormLabel className="text-[#0F172A]">Catatan Tambahan (Opsional)</FormLabel>
             <FormControl>
               <Textarea
                 placeholder="Informasi tambahan untuk teknisi..."
-                className="min-h-[80px]"
+                className="min-h-[80px] rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
                 {...field}
               />
             </FormControl>
@@ -127,17 +135,6 @@ export function StepSchedule() {
           </FormItem>
         )}
       />
-
-      <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/10">
-        <Calendar className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-        <div>
-          <p className="text-sm font-medium">Tips</p>
-          <p className="text-sm text-muted-foreground">
-            Kami akan menghubungi Anda terlebih dahulu sebelum teknisi
-            berangkat.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

@@ -22,9 +22,13 @@ export function StepCustomer() {
         name="customerName"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Nama Lengkap *</FormLabel>
+            <FormLabel className="text-[#0F172A]">Nama Lengkap *</FormLabel>
             <FormControl>
-              <Input placeholder="Masukkan nama lengkap" {...field} />
+              <Input
+                placeholder="Masukkan nama lengkap"
+                className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                {...field}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -36,9 +40,14 @@ export function StepCustomer() {
         name="phone"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Nomor WhatsApp *</FormLabel>
+            <FormLabel className="text-[#0F172A]">Nomor WhatsApp *</FormLabel>
             <FormControl>
-              <Input placeholder="08xxxxxxxxxx" type="tel" {...field} />
+              <Input
+                placeholder="08xxxxxxxxxx"
+                type="tel"
+                className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                {...field}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -50,9 +59,14 @@ export function StepCustomer() {
         name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Email (Opsional)</FormLabel>
+            <FormLabel className="text-[#0F172A]">Email (Opsional)</FormLabel>
             <FormControl>
-              <Input placeholder="email@contoh.com" type="email" {...field} />
+              <Input
+                placeholder="email@contoh.com"
+                type="email"
+                className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                {...field}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -64,11 +78,11 @@ export function StepCustomer() {
         name="address"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Alamat Lengkap *</FormLabel>
+            <FormLabel className="text-[#0F172A]">Alamat Lengkap *</FormLabel>
             <FormControl>
               <Textarea
                 placeholder="Jalan, nomor rumah, RT/RW, kelurahan..."
-                className="min-h-[80px]"
+                className="min-h-[100px] rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
                 {...field}
               />
             </FormControl>
@@ -83,9 +97,13 @@ export function StepCustomer() {
           name="city"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Kota *</FormLabel>
+              <FormLabel className="text-[#0F172A]">Kota *</FormLabel>
               <FormControl>
-                <Input placeholder="Nama kota" {...field} />
+                <Input
+                  placeholder="Nama kota"
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -97,9 +115,13 @@ export function StepCustomer() {
           name="district"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Kecamatan *</FormLabel>
+              <FormLabel className="text-[#0F172A]">Kecamatan *</FormLabel>
               <FormControl>
-                <Input placeholder="Nama kecamatan" {...field} />
+                <Input
+                  placeholder="Nama kecamatan"
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -113,9 +135,13 @@ export function StepCustomer() {
           name="postalCode"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Kode Pos (Opsional)</FormLabel>
+              <FormLabel className="text-[#0F172A]">Kode Pos (Opsional)</FormLabel>
               <FormControl>
-                <Input placeholder="12345" {...field} />
+                <Input
+                  placeholder="12345"
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -127,9 +153,13 @@ export function StepCustomer() {
           name="googleMaps"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Google Maps Link (Opsional)</FormLabel>
+              <FormLabel className="text-[#0F172A]">Google Maps Link (Opsional)</FormLabel>
               <FormControl>
-                <Input placeholder="https://maps.app.goo.gl/..." {...field} />
+                <Input
+                  placeholder="https://maps.app.goo.gl/..."
+                  className="h-12 rounded-xl border-[#E5E7EB] text-[#0F172A] placeholder:text-[#94A3B8] focus:border-[#22C55E] focus:ring-[#22C55E]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -137,15 +167,11 @@ export function StepCustomer() {
         />
       </div>
 
-      <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/10">
-        <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-        <div>
-          <p className="text-sm font-medium">Tips</p>
-          <p className="text-sm text-muted-foreground">
-            Alamat yang lengkap membantu teknisi menemukan lokasi Anda lebih
-            cepat.
-          </p>
-        </div>
+      <div className="flex items-start gap-3 p-4 rounded-xl bg-[#F1F5F9]">
+        <MapPin className="w-4 h-4 text-[#94A3B8] mt-0.5 shrink-0" />
+        <p className="text-sm text-[#475569]">
+          Alamat yang lengkap membantu teknisi menemukan lokasi Anda lebih cepat.
+        </p>
       </div>
     </div>
   );

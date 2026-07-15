@@ -82,16 +82,16 @@ export function StepReview() {
       {sections.map((section, i) => {
         const Icon = section.icon;
         return (
-          <div key={i} className="rounded-xl border border-border p-4">
+          <div key={i} className="rounded-xl border border-[#E5E7EB] p-4 bg-white">
             <div className="flex items-center gap-2 mb-3">
-              <Icon className="w-4 h-4 text-primary" />
-              <h4 className="text-sm font-semibold">{section.title}</h4>
+              <Icon className="w-4 h-4 text-[#94A3B8]" />
+              <h4 className="text-sm font-semibold text-[#0F172A]">{section.title}</h4>
             </div>
             <div className="space-y-2">
               {section.items.map((item, j) => (
                 <div key={j} className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">{item.label}</span>
-                  <span className="font-medium text-right max-w-[60%] truncate">
+                  <span className="text-[#94A3B8]">{item.label}</span>
+                  <span className="font-medium text-[#0F172A] text-right max-w-[60%] truncate">
                     {item.value}
                   </span>
                 </div>
@@ -101,7 +101,7 @@ export function StepReview() {
         );
       })}
 
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-[#E5E7EB]" />
 
       <div className="flex items-start gap-3">
         <Checkbox
@@ -109,8 +109,9 @@ export function StepReview() {
           onCheckedChange={(checked) =>
             setValue("agreed", checked === true, { shouldValidate: true })
           }
+          className="border-[#E5E7EB] data-[state=checked]:bg-[#22C55E] data-[state=checked]:border-[#22C55E]"
         />
-        <Label htmlFor="agree" className="text-sm cursor-pointer leading-relaxed">
+        <Label htmlFor="agree" className="text-sm cursor-pointer leading-relaxed text-[#475569]">
           Saya memastikan bahwa semua informasi yang saya berikan sudah benar
           dan lengkap.
         </Label>
