@@ -178,6 +178,34 @@ export function BookingWizard() {
         images: imageUrls,
       });
 
+      fetch("/api/telegram", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          bookingCode,
+          customerName: values.customerName,
+          phone: values.phone,
+          email: values.email || undefined,
+          address: values.address,
+          district: values.district,
+          city: values.city,
+          postalCode: values.postalCode || undefined,
+          googleMaps: values.googleMaps || undefined,
+          device: values.device,
+          brand: values.brand || undefined,
+          model: values.model || undefined,
+          deviceAge: values.deviceAge || undefined,
+          services: values.services as string[],
+          problem: values.problem,
+          bookingDate: values.bookingDate,
+          bookingTime: values.bookingTime,
+          locationType: values.locationType,
+          priority: values.priority,
+          notes: values.notes || undefined,
+          images: imageUrls,
+        }),
+      }).catch((err) => console.error("Telegram notification failed:", err));
+
       const params = new URLSearchParams({
         code: bookingCode,
         name: values.customerName,
